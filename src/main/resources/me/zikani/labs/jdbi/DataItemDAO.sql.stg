@@ -1,0 +1,18 @@
+group DataItemDAO;
+
+
+createSourceA() ::= <<
+    Create table source_a(id INTEGER GENERATED ALWAYS AS IDENTITY(START WITH 1), data_value double);
+>>
+
+createSourceB() ::= <<
+    Create table source_b(id INTEGER GENERATED ALWAYS AS IDENTITY(START WITH 1), data_value double);
+>>
+
+findAll(source) ::= << 
+    Select id, data_value from <source>
+>>
+
+insert(source, value) ::= <<
+    Insert into <source>(data_value) VALUES (:value)
+>>
